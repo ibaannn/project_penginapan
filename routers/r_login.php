@@ -20,12 +20,18 @@ try {
         $login->register($id, $username, $email, $pass, $role, $photo);
         if($login) {
             echo "<script> alert('akun berhasil register');
-            document.location.href = '../views/index.php';
+            document.location.href = '../index.php';
             </script>";
         }
     }elseif ($_GET["aksi"] == "login") {
         $email = $_POST["email"];
         $pass = $_POST["pass"];
+
+        if($email != $pass) {
+            echo "<script> alert('password/email salah!');
+            document.location.href = '../index.php';
+            </script>";
+        }
     
         $login->login($email, $pass);
     }elseif ($_GET["aksi"] == "logout") {

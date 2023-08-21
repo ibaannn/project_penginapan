@@ -35,22 +35,18 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Welcome back!!</h1>
                             </div>
-                            <form action="routers/r_login.php?aksi=register" method="post" class="user">
+                            <form action="routers/r_login.php?aksi=login" method="post" class="user">
                                 <div class="form-group row">
                                 </div>
                                 <input type="text" name="id" id="id" hidden>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="username"
-                                        placeholder="Username" name="username" required>
-                                </div>
-                                <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="email"
-                                        placeholder="Email Address" name="email" hidden required>
+                                        placeholder="Email Address" name="email" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user" id="password"
-                                        placeholder="Password" name="password" required minlength="8">
+                                        placeholder="Password" name="pass" required minlength="8">
                                 </div>
 
                                 <div class="form-group">
@@ -60,7 +56,7 @@
 
                                 <input type="text" name="photo" id="photo" value="" hidden>
 
-                                <button type="submit" name="register" class="btn btn-primary btn-user btn-block">Login</button>
+                                <button type="submit" name="login" class="btn btn-primary btn-user btn-block">Login</button>
                             </form>
                             <hr>
                             <div class="text-center">
