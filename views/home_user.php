@@ -1,6 +1,10 @@
+<?php include "../controllers/c_login.php";
 
-<?php include_once "template/header.php" ?>
-<?php include_once "template/sidebar.php" ?>
+$data = $_SESSION['data'];
+$nama = $_SESSION['nama'] = $data['nama'];
+$role = $_SESSION['role'] = $data['role'];
+include_once "template/header.php"; 
+include_once "template/sidebar.php"; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -182,7 +186,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $nama; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -222,8 +226,8 @@
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
-
-                    <!-- DataTales Example -->
+<h1>Ini halaman user <?= $nama; ?></h1>
+                    <!-- DataTales Example
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -260,11 +264,11 @@
                                             <td>2011/01/25</td>
                                             <td>$112,000</td>
                                         </tr> -->
-                                    </tbody>
+                                    <!-- </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <!-- /.container-fluid -->

@@ -3,11 +3,11 @@
 session_start();
 include_once "c_koneksi.php";
 class c_login {
-    public function register($id=null, $username=null, $email=null, $password=null, $role=null, $photo=null) {
+    public function register($id=0, $username, $email, $password, $role, $photo) {
 
         $conn = new c_koneksi();
         
-            $query = "INSERT INTO user VALUES ('$id', '$username', '$email', '$password', '$role', '$photo')";
+            $query = "INSERT INTO user VALUES ('$id', '$username', '$email', '$password', '$role', '')";
             $data = mysqli_query($conn->conn(), $query);
         
     }

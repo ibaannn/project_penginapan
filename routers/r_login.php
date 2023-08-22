@@ -17,7 +17,7 @@ try {
     
         $pass = password_hash($password, PASSWORD_DEFAULT);
     
-        $login->register($id, $username, $email, $pass, $role, $photo);
+        $login->register($id=0, $username, $email, $pass, $role, $photo);
         if($login) {
             echo "<script> alert('akun berhasil register');
             document.location.href = '../index.php';

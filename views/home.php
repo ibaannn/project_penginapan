@@ -1,6 +1,10 @@
+<?php include "../controllers/c_login.php";
 
-<?php include_once "template/header.php" ?>
-<?php include_once "template/sidebar.php" ?>
+$data = $_SESSION['data'];
+$nama = $_SESSION['nama'] = $data['nama'];
+$role = $_SESSION['role'] = $data['role'];
+include_once "template/header.php"; 
+include_once "template/sidebar.php"; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -182,7 +186,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $nama; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
