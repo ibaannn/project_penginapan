@@ -28,11 +28,11 @@ try {
         $pass = $_POST["pass"];
 
         if($email != $pass) {
-            echo "<script> alert('password/email salah!');
+            echo "<script> alert('Password/Email SALAH!');
             document.location.href = '../index.php';
             </script>";
         }
-    
+        
         $login->login($email, $pass);
     }elseif ($_GET["aksi"] == "logout") {
         $login->logout();
