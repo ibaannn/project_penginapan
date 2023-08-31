@@ -1,6 +1,8 @@
 <?php 
 
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
+
 if(isset($_SESSION["name"])) {
     header("Location: index.php");
 }
@@ -52,7 +54,6 @@ if(isset($_SESSION["name"])) {
                                     <input type="email" class="form-control form-control-user" id="email"
                                         placeholder="Email Address" name="email" required>
                                 </div>
-                                
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user" id="password"
                                         placeholder="Password" name="pass" required minlength="8">

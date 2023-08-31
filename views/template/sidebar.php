@@ -11,26 +11,39 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Anda <sup><?= $role ?></sup></div>
+                <div class="sidebar-brand-text mx-3"><?= $nama; ?> <sup><?= $role ?></sup></div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item <?= $halaman == 'home' ? 'active' : ''; ?>">
+                <a class="nav-link" href="home.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Home</span></a>
             </li>
 
+            <hr class="sidebar-divider d-none d-md-block">
             
+
+            <?php if($role == "user") : ?>
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+            <li class="nav-item <?= $halaman == 'tabel' ? 'active' : ''; ?>">
+                <a class="nav-link" href="tabel.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
+            <?php endif; ?>
+
+            <?php if($role == "admin") : ?>
+            <li class="nav-item <?= $halaman == 'barang' ? 'active' : ''; ?>">
+                <a class="nav-link" href="barang.php">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Barang</span>
+                </a>
+            </li>
+            <?php endif; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
