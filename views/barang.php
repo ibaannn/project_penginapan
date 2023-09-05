@@ -1,4 +1,5 @@
 <?php include "../controllers/c_login.php";
+error_clear_last();
 
 $halaman = "barang";
 
@@ -182,20 +183,12 @@ $baru = new c_barang();
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="home.php">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Profile
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Activity Log
-                        </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../routers/r_login.php?aksi=logout" >
+                        <a class="dropdown-item" href="../routers/r_login.php?aksi=logout">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
                         </a>
@@ -213,17 +206,27 @@ $baru = new c_barang();
 
             <!-- Page Heading -->
             <!-- DataTales Example -->
+            <div style="text-align: right;">
+                <a href="tambah_barang.php" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span class="text">Tambah data</span>
+                </a>
+            </div>
+            <div style="text-align: left;">
+                <div class="my-2"></div>
+                <a href="laporan.php" target="_blank" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-print"></i>
+                    </span>
+                    <span class="text">Cetak</span>
+                </a>
+            </div>
+            <br>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h4 class="m-0 font-weight-bold text-primary">Tabel Data</h4>
-                    <div style="text-align: right;"  >
-                        <a href="tambah_barang.php" class="btn btn-primary btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-plus"></i>
-                            </span>
-                            <span class="text">Tambah data</span>
-                        </a>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -248,16 +251,16 @@ $baru = new c_barang();
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
-                            <?php $i = 1; ?>
-                            <?php foreach ($baru->read() as $read) : ?>
-                                <tbody>
+                            <tbody>
+                                <?php $i = 1; ?>
+                                    <?php foreach ($baru->read() as $read) : ?>
                                     <tr>
                                         <td><?= $i; ?></td>
                                         <td><?= $read->nama_barang ?></td>
                                         <td><?= $read->qty ?></td>
-                                        <td><?= $read->harga ?></td>
+                                        <td><?= 'Rp. ' . number_format($read->harga, 0, '', '.'); ?></td>
                                         <td>
-                                            <img src="../assets/img/<?= $read->photo ?>" alt="" width="50px" height="50px">
+                                            <img src="../assets/img/<?= $read->photo ?>" alt="<?= $read->nama_barang ?>" width="50px" height="50px">
                                         </td>
                                         <td>
                                             <a href="edit_barang.php?id=<?= $read->id ?>" class="btn btn-info btn-circle btn-sm">
@@ -269,8 +272,9 @@ $baru = new c_barang();
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
-                                </tbody>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                                
+                            </tbody>
                         </table>
                     </div>
                 </div>

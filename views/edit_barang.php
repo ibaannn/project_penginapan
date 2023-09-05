@@ -229,7 +229,7 @@ include_once "template/sidebar.php";
                     </div>
 
                     <?php foreach($barang->edit($_GET["id"]) as $edit) : ?>
-                    <form class="user" action="../routers/r_barang.php?aksi=edit" method="post">
+                    <form class="user" action="../routers/r_barang.php?aksi=edit" method="post" enctype="multipart/form-data">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                             <input type="text" name="id" id="id" hidden value="<?= $edit->id ?>">
                             <div class="form-group ">

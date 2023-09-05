@@ -11,19 +11,21 @@ class c_barang
 
     public function read()
     {
-        $conn = new c_koneksi();
-        // perintah mengambil semua data dari barang dan mengurutkan sesuai data terbaru diatas
-        $query = "SELECT * FROM barang ORDER BY id DESC";
-        $data = mysqli_query($conn->conn(), $query);
+        
+            $conn = new c_koneksi();
+            // perintah mengambil semua data dari barang dan mengurutkan sesuai data terbaru diatas
+            $query = "SELECT * FROM barang ORDER BY id DESC";
+            $data = mysqli_query($conn->conn(), $query);
 
-        // mengubah query data menjadi objek
-        while ($row = mysqli_fetch_object($data)) {
-            // array kosong untuk menampung data objek
-            $rows[] = $row;
-        }
-
-        // mengembalikan nilai
-        return $rows;
+            // mengubah query data menjadi objek
+            while ($row = mysqli_fetch_object($data)) {
+                // array kosong untuk menampung data objek
+                $rows[] = $row;
+            }
+            // mengembalikan nilai
+            
+            return $rows;
+            
     }
 
     public function edit($id)
@@ -56,5 +58,10 @@ class c_barang
         $data = mysqli_query($conn->conn(), $query);
 
         header("Location: ../views/barang.php");
+    }
+
+    public function laporan()
+    {
+        echo "<script>window.print();</script>";
     }
 }
